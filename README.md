@@ -10,3 +10,6 @@ python monitoring/prometheus_exporter.py --port 9108
 uvicorn web-dashboard.main:app --reload --port 8000
 ```
 Open http://localhost:8000 — metrics: http://localhost:9108/metrics
+
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+![Last commit](https://img.shields.io/github/last-commit/suresh-1001/it-ops-control-center)
