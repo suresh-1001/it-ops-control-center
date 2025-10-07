@@ -1,0 +1,32 @@
+
+<!doctype html><html><head><meta charset="utf-8"><title>IT Ops Control Center</title>
+<style>body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial;margin:24px;color:#0b132b}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{border:1px solid #dfe3eb;border-radius:12px;padding:16px;background:#fff}
+.tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px}.pass{background:#e6fbef;color:#0f7a3a}.fail{background:#ffe8e6;color:#b42318}
+input,button{padding:8px 10px;border-radius:8px;border:1px solid #cdd3de}button{background:#124;color:#fff;border:0}
+</style></head><body>
+<h1>IT Ops Control Center</h1>
+<div class="grid">
+ <div class="card"><h3>Quick Onboarding (Dry Run)</h3>
+  <input id="email" placeholder="jane.doe@company.com"> <input id="role" value="Engineer">
+  <button onclick="onboard()">Generate Plan</button>
+  <pre id="plan"></pre></div>
+ <div class="card"><h3>Compliance Status (SOC 2)</h3>
+  {% for k,v in compliance.get('status', {}).items() %}
+   <div><span class="tag {{ 'pass' if v['status']=='pass' else 'fail' }}">{{ v['status'].upper() }}</span> <b>{{k}}</b> — {{v['desc']}}</div>
+  {% endfor %}
+ </div>
+ <div class="card"><h3>Metrics</h3>
+  <p>Exporter: <code>http://localhost:9108/metrics</code> (Grafana via Prometheus)</p>
+  <ul><li>itops_vm_up{host}</li><li>itops_vpn_up{peer}</li><li>itops_open_actions{type}</li></ul>
+ </div>
+</div>
+<script>
+async function onboard(){
+  const email=document.getElementById('email').value||'jane.doe@company.com';
+  const role=document.getElementById('role').value||'Engineer';
+  const r=await fetch(`/api/onboard?email=${encodeURIComponent(email)}&role=${encodeURIComponent(role)}`,{method:'POST'});
+  const data=await r.json(); document.getElementById('plan').textContent=JSON.stringify(data.plan,null,2);
+}
+</script>
+</body></html>
