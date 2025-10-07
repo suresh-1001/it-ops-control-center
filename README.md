@@ -104,16 +104,16 @@ docker compose exec grafana grafana-cli admin reset-admin-password 'ChangeMe123!
 
 ## 🧾 Case Study — Real-World Alignment
 
-**Purpose:** Streamline IT systems and security workflows for daily visibility and audit readiness.
+**Purpose:** Streamline IT systems and security workflows for daily visibility, operational resilience, and audit readiness.
 
 | Role Alignment | Value Demonstrated |
 |-----------------|--------------------|
-| **Senior IT Systems & Security Specialist (Hearth)** | SOC 2 automation, Jira/Slack integrations, macOS fleet management |
-| **IT Manager (Cyngn)** | VM/VPN uptime monitoring, helpdesk automation, network reliability |
+| **IT Systems & Security Specialist** | SOC 2 / PCI DSS automation, Jira & Slack integrations, fleet and endpoint management |
+| **IT Operations Manager** | VM/VPN uptime monitoring, helpdesk workflow automation, network and infrastructure reliability |
 
 **Impact Metrics**
 - 60 % faster onboarding/offboarding cycle  
-- 24 h infra visibility with Grafana/Prometheus  
+- 24 h infrastructure visibility via Grafana/Prometheus  
 - Daily SOC 2 JSON control export → auditor-ready evidence
 
 ---
