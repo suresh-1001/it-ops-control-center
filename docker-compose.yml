@@ -7,6 +7,11 @@ services:
     volumes: [ ".:/app" ]
     ports: [ "8000:8000" ]
 
+volumes:
+      - ./provisioning/grafana/datasources:/etc/grafana/provisioning/datasources:ro
+      - ./provisioning/grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - ./grafana:/var/lib/grafana/dashboards:ro
+
   exporter:
     image: python:3.11-slim
     working_dir: /app

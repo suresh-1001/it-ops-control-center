@@ -1,0 +1,13 @@
+
+__pycache__/
+*.pyc
+.venv/
+.env
+.DS_Store
+*.swp
+volumes/
+data/
+grafana-data/
+prom-data/
+node_modules/
+dist/
